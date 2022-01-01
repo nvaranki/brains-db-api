@@ -7,7 +7,7 @@ import java.util.Objects;
  *
  * @author &copy; 2021 Николай Варанкин
  */
-public final class ЗонныйКлюч
+public class ЗонныйКлюч
 {
     public final String НАЗВАНИЕ;
     public final String ЗОНА;
