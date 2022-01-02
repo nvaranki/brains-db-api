@@ -1,6 +1,6 @@
 package com.varankin.brains.db.xml.type;
 
-import com.varankin.brains.db.xml.ЗонныйКлюч;
+import com.varankin.brains.db.xml.BrainsКлюч;
 import static com.varankin.brains.db.xml.XmlBrains.*;
 
 /**
@@ -8,7 +8,7 @@ import static com.varankin.brains.db.xml.XmlBrains.*;
  *
  * @author &copy; 2021 Николай Варанкин
  */
-public interface XmlСоединение
+public interface XmlСоединение extends XmlЭлемент
 {
-    ЗонныйКлюч КЛЮЧ_Э_СОЕДИНЕНИЕ  = new ЗонныйКлюч( XML_JOINT, XMLNS_BRAINS );
+    BrainsКлюч КЛЮЧ_Э_СОЕДИНЕНИЕ  = new BrainsКлюч( XML_JOINT );
 }

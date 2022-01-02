@@ -4,7 +4,7 @@ import com.varankin.brains.db.xml.ЗонныйКлюч;
 import com.varankin.brains.db.xml.Xml;
 
 /**
- * XML-дескриптор вычислимого фрагмента мыслительной структуры.
+ * XML-дескриптор: Блок произвольного текста.
  *
  * @author &copy; 2021 Николай Варанкин
  */

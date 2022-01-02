@@ -4,7 +4,7 @@ import com.varankin.brains.db.xml.ЗонныйКлюч;
 import com.varankin.brains.db.xml.Xml;
 
 /**
- * XML-дескриптор инструкции XML.
+ * XML-дескриптор: Инструкция для обработки.
  *
  * @author &copy; 2021 Николай Варанкин
  */

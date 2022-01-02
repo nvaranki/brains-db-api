@@ -1,19 +1,20 @@
 package com.varankin.brains.db.xml.type;
 
-import com.varankin.brains.db.xml.ЗонныйКлюч;
+import com.varankin.brains.db.xml.BrainsКлюч;
 import static com.varankin.brains.db.xml.XmlBrains.*;
 
 /**
- * XML-дескриптор контакта.
+ * XML-дескриптор: Фрагмент {@linkplain DbСоединение соединения} 
+ * для приема-передачи одного {@link DbСигнал сигнала}.
  *
  * @author &copy; 2021 Николай Варанкин
  */
 public interface XmlКонтакт extends XmlЭлемент
 {
-    ЗонныйКлюч КЛЮЧ_Э_КОНТАКТ   = new ЗонныйКлюч( XML_PIN, XMLNS_BRAINS );
+    BrainsКлюч КЛЮЧ_Э_КОНТАКТ   = new BrainsКлюч( XML_PIN      );
 
-    ЗонныйКлюч КЛЮЧ_А_ПРИОРИТЕТ = new ЗонныйКлюч( XML_PRIORITY, XMLNS_BRAINS );
-    ЗонныйКлюч КЛЮЧ_А_СВОЙСТВА  = new ЗонныйКлюч( XML_TYPE,     XMLNS_BRAINS );
-    ЗонныйКлюч КЛЮЧ_А_СИГНАЛ    = new ЗонныйКлюч( XML_SIGNAL,   XMLNS_BRAINS );
-    ЗонныйКлюч КЛЮЧ_А_ТОЧКА     = new ЗонныйКлюч( XML_POINT,    XMLNS_BRAINS );
+    BrainsКлюч КЛЮЧ_А_ПРИОРИТЕТ = new BrainsКлюч( XML_PRIORITY );
+    BrainsКлюч КЛЮЧ_А_СВОЙСТВА  = new BrainsКлюч( XML_TYPE     );
+    BrainsКлюч КЛЮЧ_А_СИГНАЛ    = new BrainsКлюч( XML_SIGNAL   );
+    BrainsКлюч КЛЮЧ_А_ТОЧКА     = new BrainsКлюч( XML_POINT    );
 }

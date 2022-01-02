@@ -1,6 +1,7 @@
 package com.varankin.brains.db.xml.type;
 
-import com.varankin.brains.db.xml.ЗонныйКлюч;
+//import com.varankin.brains.db.xml.ЗонныйКлюч;
+import com.varankin.brains.db.xml.BrainsКлюч;
 import static com.varankin.brains.db.xml.XmlBrains.*;
 
 /**
@@ -8,10 +9,11 @@ import static com.varankin.brains.db.xml.XmlBrains.*;
  *
  * @author &copy; 2021 Николай Варанкин
  */
-public interface XmlФрагмент extends XmlТиповой
+public interface XmlФрагмент extends XmlТиповой, XmlЭлемент
 {
-    ЗонныйКлюч КЛЮЧ_Э_ФРАГМЕНТ   = new ЗонныйКлюч( XML_FRAGMENT,  XMLNS_BRAINS );
+    BrainsКлюч КЛЮЧ_Э_ФРАГМЕНТ   = new BrainsКлюч( XML_FRAGMENT  );
 
     //ЗонныйКлюч КЛЮЧ_А_НАЗВАНИЕ = Типовой.КЛЮЧ_А_НАЗВАНИЕ; // дуальность названия
-    ЗонныйКлюч КЛЮЧ_А_ПРОЦЕССОР  = new ЗонныйКлюч( XML_PROCESSOR, XMLNS_BRAINS );
+    
+    BrainsКлюч КЛЮЧ_А_ПРОЦЕССОР  = new BrainsКлюч( XML_PROCESSOR );
 }

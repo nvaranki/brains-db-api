@@ -1,17 +1,17 @@
 package com.varankin.brains.db.xml.type;
 
-import com.varankin.brains.db.xml.ЗонныйКлюч;
+import com.varankin.brains.db.xml.BrainsКлюч;
 import static com.varankin.brains.db.xml.XmlBrains.*;
 
 /**
- * XML-дескриптор параметра настройки экземпляра {@linkplain Object объекта}.
+ * XML-дескриптор: Параметр настройки экземпляра {@linkplain Object объекта}.
  *
  * @author &copy; 2021 Николай Варанкин
  */
-public interface XmlПараметр
+public interface XmlПараметр extends XmlЭлемент
 {
-    ЗонныйКлюч КЛЮЧ_Э_ПАРАМЕТР  = new ЗонныйКлюч( XML_PARAMETER, XMLNS_BRAINS );
+    BrainsКлюч КЛЮЧ_Э_ПАРАМЕТР  = new BrainsКлюч( XML_PARAMETER );
 
-    ЗонныйКлюч КЛЮЧ_А_ИНДЕКС    = new ЗонныйКлюч( XML_INDEX,     XMLNS_BRAINS );
-    ЗонныйКлюч КЛЮЧ_А_ПРИОРИТЕТ = new ЗонныйКлюч( XML_PRIORITY,  XMLNS_BRAINS );
+    BrainsКлюч КЛЮЧ_А_ИНДЕКС    = new BrainsКлюч( XML_INDEX     );
+    BrainsКлюч КЛЮЧ_А_ПРИОРИТЕТ = new BrainsКлюч( XML_PRIORITY  );
 }

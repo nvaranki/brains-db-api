@@ -1,14 +1,14 @@
 package com.varankin.brains.db.xml.type;
 
-import com.varankin.brains.db.xml.ЗонныйКлюч;
+import com.varankin.brains.db.xml.BrainsКлюч;
 import static com.varankin.brains.db.xml.XmlBrains.*;
 
 /**
- * XML-дескриптор вычислимого фрагмента мыслительной структуры.
+ * XML-дескриптор: Вычислимый фрагмент мыслительной структуры.
  *
  * @author &copy; 2021 Николай Варанкин
  */
-public interface XmlРасчет
+public interface XmlРасчет extends XmlЭлемент
 {
-    ЗонныйКлюч КЛЮЧ_Э_РАСЧЕТ = new ЗонныйКлюч( XML_COMPUTE, XMLNS_BRAINS );
+    BrainsКлюч КЛЮЧ_Э_РАСЧЕТ = new BrainsКлюч( XML_COMPUTE );
 }

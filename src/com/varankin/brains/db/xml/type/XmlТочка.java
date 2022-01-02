@@ -1,6 +1,6 @@
 package com.varankin.brains.db.xml.type;
 
-import com.varankin.brains.db.xml.ЗонныйКлюч;
+import com.varankin.brains.db.xml.BrainsКлюч;
 import static com.varankin.brains.db.xml.XmlBrains.*;
 
 /**
@@ -8,12 +8,12 @@ import static com.varankin.brains.db.xml.XmlBrains.*;
  *
  * @author &copy; 2021 Николай Варанкин
  */
-public interface XmlТочка extends XmlТиповой
+public interface XmlТочка extends XmlТиповой, XmlЭлемент
 {
-    ЗонныйКлюч КЛЮЧ_Э_ТОЧКА   = new ЗонныйКлюч( XML_POINT,     XMLNS_BRAINS );
+    BrainsКлюч КЛЮЧ_Э_ТОЧКА   = new BrainsКлюч( XML_POINT     );
 
-    ЗонныйКлюч КЛЮЧ_А_ИНДЕКС  = new ЗонныйКлюч( XML_INDEX,     XMLNS_BRAINS );
-    ЗонныйКлюч КЛЮЧ_А_ДАТЧИК  = new ЗонныйКлюч( XML_PROBE,     XMLNS_BRAINS );
-    ЗонныйКлюч КЛЮЧ_А_ПОРОГ   = new ЗонныйКлюч( XML_THRESHOLD, XMLNS_BRAINS );
-    ЗонныйКлюч КЛЮЧ_А_КОНТАКТ = new ЗонныйКлюч( XML_PIN,       XMLNS_BRAINS );
+    BrainsКлюч КЛЮЧ_А_ИНДЕКС  = new BrainsКлюч( XML_INDEX     );
+    BrainsКлюч КЛЮЧ_А_ДАТЧИК  = new BrainsКлюч( XML_PROBE     );
+    BrainsКлюч КЛЮЧ_А_ПОРОГ   = new BrainsКлюч( XML_THRESHOLD );
+    BrainsКлюч КЛЮЧ_А_КОНТАКТ = new BrainsКлюч( XML_PIN       );
 }

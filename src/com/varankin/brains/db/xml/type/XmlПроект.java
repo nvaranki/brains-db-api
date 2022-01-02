@@ -1,14 +1,14 @@
 package com.varankin.brains.db.xml.type;
 
-import com.varankin.brains.db.xml.ЗонныйКлюч;
+import com.varankin.brains.db.xml.BrainsКлюч;
 import static com.varankin.brains.db.xml.XmlBrains.*;
 
 /**
- * XML-дескриптор мыслительной структуры.
+ * XML-дескриптор: Мыслительная структура.
  *
  * @author &copy; 2021 Николай Варанкин
  */
-public interface XmlПроект
+public interface XmlПроект extends XmlЭлемент
 {
-    ЗонныйКлюч КЛЮЧ_Э_ПРОЕКТ = new ЗонныйКлюч( XML_PROJECT, XMLNS_BRAINS );
+    BrainsКлюч КЛЮЧ_Э_ПРОЕКТ = new BrainsКлюч( XML_PROJECT );
 }

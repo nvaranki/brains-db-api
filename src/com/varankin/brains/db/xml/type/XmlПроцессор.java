@@ -1,22 +1,22 @@
 package com.varankin.brains.db.xml.type;
 
-import com.varankin.brains.db.xml.ЗонныйКлюч;
+import com.varankin.brains.db.xml.BrainsКлюч;
 import static com.varankin.brains.db.xml.XmlBrains.*;
 
 /**
- * XML-дескриптор активного элемента мыслительной структуры.
+ * XML-дескриптор: Активный элемент мыслительной структуры.
  *
  * @author &copy; 2021 Николай Варанкин
  */
-public interface XmlПроцессор extends XmlТиповой
+public interface XmlПроцессор extends XmlТиповой, XmlЭлемент
 {
-    ЗонныйКлюч КЛЮЧ_Э_ПРОЦЕССОР  = new ЗонныйКлюч( XML_PROCESSOR, XMLNS_BRAINS );
+    BrainsКлюч КЛЮЧ_Э_ПРОЦЕССОР  = new BrainsКлюч( XML_PROCESSOR );
     
-    ЗонныйКлюч КЛЮЧ_А_СТРАТЕГИЯ  = new ЗонныйКлюч( XML_STRATEGY,  XMLNS_BRAINS );
-    ЗонныйКлюч КЛЮЧ_А_ОЧИСТКА    = new ЗонныйКлюч( XML_PURGE,     XMLNS_BRAINS );
-    ЗонныйКлюч КЛЮЧ_А_СЖАТИЕ     = new ЗонныйКлюч( XML_COLLAPSE,  XMLNS_BRAINS );
-    ЗонныйКлюч КЛЮЧ_А_РЕСТАРТ    = new ЗонныйКлюч( XML_RESTART,   XMLNS_BRAINS );
-    ЗонныйКлюч КЛЮЧ_А_ПАУЗА      = new ЗонныйКлюч( XML_PAUSE,     XMLNS_BRAINS );
-    ЗонныйКлюч КЛЮЧ_А_НАКОПЛЕНИЕ = new ЗонныйКлюч( XML_INLINE,    XMLNS_BRAINS );
-    ЗонныйКлюч КЛЮЧ_А_ЗАДЕРЖКА   = new ЗонныйКлюч( XML_DELAY,     XMLNS_BRAINS );
+    BrainsКлюч КЛЮЧ_А_СТРАТЕГИЯ  = new BrainsКлюч( XML_STRATEGY  );
+    BrainsКлюч КЛЮЧ_А_ОЧИСТКА    = new BrainsКлюч( XML_PURGE     );
+    BrainsКлюч КЛЮЧ_А_СЖАТИЕ     = new BrainsКлюч( XML_COLLAPSE  );
+    BrainsКлюч КЛЮЧ_А_РЕСТАРТ    = new BrainsКлюч( XML_RESTART   );
+    BrainsКлюч КЛЮЧ_А_ПАУЗА      = new BrainsКлюч( XML_PAUSE     );
+    BrainsКлюч КЛЮЧ_А_НАКОПЛЕНИЕ = new BrainsКлюч( XML_INLINE    );
+    BrainsКлюч КЛЮЧ_А_ЗАДЕРЖКА   = new BrainsКлюч( XML_DELAY     );
 }
