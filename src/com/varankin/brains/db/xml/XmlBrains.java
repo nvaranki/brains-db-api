@@ -1,11 +1,22 @@
 package com.varankin.brains.db.xml;
 
+import java.net.URL;
+
 /**
  *
- * @author &copy; 2020 Николай Варанкин
+ * @author &copy; 2021 Николай Варанкин
  */
 public interface XmlBrains 
 {
+    /** Короткая ссылка на описание XML-формата "brains".
+      * Для применения в XML-файле пакета, например: 
+      * {@literal <!DOCTYPE brains SYSTEM "brains.dtd" >} 
+      */
+    String DTD_SYSTEM_BRAINS = "brains.dtd";
+    
+    /** Встроенный экземпляр файла {@link #DTD_SYSTEM_BRAINS}. */
+    URL URL_BRAINS_DTD = XmlBrains.class.getResource( "/xml/" + DTD_SYSTEM_BRAINS );
+
     // названия типов (начинающиеся с '#', не участвуют во внешнем вводе-выводе)
         
     // теги

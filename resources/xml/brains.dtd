@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+   - Descriptor of XML based object model for the brains structures.
+   - 
+   - Copyright (c) 2021 Nikolai Varankine
+  -->
+
+<!-- DbПакет extends DbУзел, Именованный -->
+<!ELEMENT brains ( library | project | ANY )* >
+<!ATTLIST brains 
+    version CDATA #REQUIRED 
+    name    CDATA #IMPLIED 
+    >
+
+<!-- DbПроект extends Коллективный, DbЭлемент -->
+<!ELEMENT project ( library | fragment | processor | signal | note | ANY )* ><!-- DbЭлемент: графики сборки -->
+<!ATTLIST project 
+    name    CDATA #IMPLIED 
+    >
+
+<!-- DbБиблиотека extends DbЭлемент -->
+<!ELEMENT library ( field | module | compute | timeline | processor | point | sensor | java | note | ANY )* ><!-- DbЭлемент: графики сборки -->
+<!ATTLIST library 
+    name    CDATA #IMPLIED 
+    >
+
+<!-- DbПоле extends DbФрагмент.Экземпляр -->
+<!ELEMENT field ( sensor | joint | note | ANY )* ><!-- DbЭлемент: графики сборки -->
+<!ATTLIST field 
+    name    CDATA #IMPLIED 
+    >
+
+<!-- DbМодуль extends Коллективный, DbФрагмент.Экземпляр -->
+<!ELEMENT module ( library | fragment | processor | signal | joint | note | ANY )* ><!-- DbЭлемент: графики сборки -->
+<!ATTLIST module 
+    name    CDATA #REQUIRED 
+    >
+
+<!-- DbРасчет extends DbФрагмент.Экземпляр -->
+<!ELEMENT compute ( point | joint | note | ANY )* ><!-- DbЭлемент: графики сборки -->
+<!ATTLIST compute 
+    name    CDATA #REQUIRED 
+    >
+
+<!-- DbЛента extends DbФрагмент.Экземпляр -->
+<!ELEMENT timeline ( joint | note | ANY )* ><!-- DbЭлемент: графики сборки -->
+<!ATTLIST timeline 
+    name    CDATA #REQUIRED 
+    >
+
+<!-- DbПроцессор extends Параметризованный, Внешний, Типовой<DbПроцессор>, DbЭлемент -->
+<!ELEMENT processor ( parameter | java | note | ANY )* ><!-- DbЭлемент: графики сборки -->
+<!ATTLIST processor 
+    name     CDATA        #REQUIRED 
+    strategy CDATA        #IMPLIED
+    purge    (true|false) #IMPLIED
+    collapse (true|false) #IMPLIED
+    restart  (true|false) #IMPLIED
+    pause    CDATA        #IMPLIED
+    inline   CDATA        #IMPLIED
+    delay    CDATA        #IMPLIED
+    ><!-- Типовой: title href show actuate -->
+
+<!-- DbТочка extends Параметризованный, Внешний, Типовой<DbТочка>, DbЭлемент -->
+<!ELEMENT point ( point | parameter | java | note | ANY )* ><!-- DbЭлемент: графики сборки -->
+<!ATTLIST point 
+    name      CDATA        #IMPLIED 
+    index     CDATA        #IMPLIED 
+    probe     (true|false) #IMPLIED
+    threshold CDATA        #IMPLIED
+    pin       CDATA        #IMPLIED
+    ><!-- Типовой: title href show actuate -->
+
+<!-- DbСенсор extends Параметризованный, Внешний, Типовой<DbСенсор>, DbЭлемент -->
+<!ELEMENT sensor ( parameter | java | note | ANY )* ><!-- DbЭлемент: графики сборки -->
+<!ATTLIST sensor 
+    name      CDATA        #IMPLIED 
+    >
+
+<!-- DbКлассJava extends DbЭлемент -->
+<!ELEMENT java ( #PCDATA | note | ANY )* ><!-- DbЭлемент: графики сборки -->
+<!ATTLIST java 
+    name      CDATA        #REQUIRED 
+    purpose   CDATA        #IMPLIED 
+    >
+
+<!-- DbЗаметка extends DbУзел -->
+<!ELEMENT note ( #PCDATA | ANY )* ><!-- графики -->
+<!ATTLIST note 
+    detail CDATA #IMPLIED 
+    >
+
+<!-- DbКонтакт extends Внешний, Параметризованный, DbЭлемент -->
+<!ELEMENT pin ( parameter | java | note | ANY )* ><!-- DbЭлемент: графики сборки -->
+<!ATTLIST pin 
+    point    CDATA     #IMPLIED 
+    signal   CDATA     #IMPLIED 
+    priority CDATA     #IMPLIED 
+    type     (inp|out) #IMPLIED 
+    >
+
+<!-- DbПараметр extends Параметризованный, Внешний, DbЭлемент -->
+<!ELEMENT parameter ( #PCDATA | parameter | java | note | ANY )* ><!-- DbЭлемент: графики сборки -->
+<!ATTLIST parameter 
+    name     CDATA #IMPLIED 
+    index    CDATA #IMPLIED 
+    priority CDATA #IMPLIED 
+    >
+
+<!-- DbСоединение extends DbЭлемент -->
+<!ELEMENT joint ( pin | note | ANY )* ><!-- DbЭлемент: графики сборки -->
+<!ATTLIST joint 
+    name      CDATA        #IMPLIED 
+    >
+
+<!-- DbФрагмент extends Типовой<DbФрагмент.Экземпляр>, 
+        Параметризованный, Коммутируемый, DbЭлемент -->
+<!ELEMENT fragment ( parameter | joint | note | ANY )* ><!-- DbЭлемент: графики сборки -->
+<!ATTLIST fragment 
+    name      CDATA #IMPLIED 
+    processor CDATA #IMPLIED
+    ><!-- Типовой: title href show actuate -->
+
+<!-- DbСигнал extends DbЭлемент -->
+<!ELEMENT signal ( note | ANY )* ><!-- DbЭлемент: графики сборки -->
+<!ATTLIST signal 
+    name     CDATA #IMPLIED 
+    priority CDATA #IMPLIED
+    >
+
+<!-- pin type -->
+<!ENTITY out "1" ><!-- DbКонтакт.ИСТОЧНИК -->
+<!ENTITY inp "2" ><!-- DbКонтакт.ПРИЕМНИК -->
+<!-- TODO no longer supported   ENTITY sync "4" --><!-- ? -->
+<!-- TODO no longer supported   ENTITY capture '10' --><!-- LdrРасчет.ЗАХВАТ -->
