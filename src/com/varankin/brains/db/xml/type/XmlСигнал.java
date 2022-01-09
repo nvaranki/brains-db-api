@@ -8,7 +8,7 @@ import static com.varankin.brains.db.xml.XmlBrains.*;
  *
  * @author &copy; 2021 Николай Варанкин
  */
-public interface XmlСигнал
+public interface XmlСигнал extends XmlЭлемент
 {
     BrainsКлюч КЛЮЧ_Э_СИГНАЛ    = new BrainsКлюч( XML_SIGNAL   );
         

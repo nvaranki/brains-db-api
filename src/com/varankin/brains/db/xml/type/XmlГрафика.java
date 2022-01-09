@@ -6,7 +6,7 @@ package com.varankin.brains.db.xml.type;
  * 
  * @author &copy; 2021 Николай Варанкин
  */
-public interface XmlГрафика extends XmlТиповой
+public interface XmlГрафика extends XmlТиповой, XmlУзел
 {
     
 }

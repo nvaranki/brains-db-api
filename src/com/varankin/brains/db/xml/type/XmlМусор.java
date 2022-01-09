@@ -8,7 +8,7 @@ import static com.varankin.brains.db.xml.XmlBrains.*;
  *
  * @author &copy; 2021 Николай Варанкин
  */
-public interface XmlМусор
+public interface XmlМусор extends XmlАтрибутный
 {
     ЗонныйКлюч КЛЮЧ_Э_МУСОР = new ЗонныйКлюч( XML_BASKET, XMLNS_BRAINS ); //TODO XMLNS_BRAINS ?
 }

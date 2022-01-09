@@ -8,7 +8,7 @@ import static com.varankin.brains.db.xml.XmlBrains.*;
  *
  * @author &copy; 2021 Николай Варанкин
  */
-public interface XmlПоле extends XmlЭлемент
+public interface XmlПоле extends XmlФрагмент.Экземпляр
 {
     BrainsКлюч КЛЮЧ_Э_ПОЛЕ = new BrainsКлюч( XML_FIELD );
 }

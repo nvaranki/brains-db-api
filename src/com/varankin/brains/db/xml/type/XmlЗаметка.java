@@ -9,7 +9,7 @@ import static com.varankin.brains.db.xml.XmlBrains.*;
  *
  * @author &copy; 2021 Николай Варанкин
  */
-public interface XmlЗаметка
+public interface XmlЗаметка extends XmlУзел
 {
     BrainsКлюч КЛЮЧ_Э_ЗАМЕТКА = new BrainsКлюч( XML_NOTE );
 

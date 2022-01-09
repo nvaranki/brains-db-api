@@ -1,17 +1,19 @@
 package com.varankin.brains.db.xml.type;
 
-import com.varankin.brains.db.xml.XLink;
+import com.varankin.brains.db.xml.XLinkКлюч;
 import com.varankin.brains.db.xml.ЗонныйКлюч;
+
+import static com.varankin.brains.db.xml.XLink.*;
 
 /**
  * XML-дескриптор типовых элементов.
  *
  * @author &copy; 2021 Николай Варанкин
  */
-public interface XmlТиповой extends XLink
+public interface XmlТиповой
 {
-    ЗонныйКлюч КЛЮЧ_А_НАЗВАНИЕ_Т = new ЗонныйКлюч( XLINK_TITLE,   XMLNS_XLINK );
-    ЗонныйКлюч КЛЮЧ_А_ССЫЛКА     = new ЗонныйКлюч( XLINK_HREF,    XMLNS_XLINK );
-    ЗонныйКлюч КЛЮЧ_А_ВИД        = new ЗонныйКлюч( XLINK_SHOW,    XMLNS_XLINK );
-    ЗонныйКлюч КЛЮЧ_А_РЕАЛИЗАЦИЯ = new ЗонныйКлюч( XLINK_ACTUATE, XMLNS_XLINK );
+    ЗонныйКлюч КЛЮЧ_А_НАЗВАНИЕ_Т = new XLinkКлюч( XLINK_TITLE   );
+    ЗонныйКлюч КЛЮЧ_А_ССЫЛКА     = new XLinkКлюч( XLINK_HREF    );
+    ЗонныйКлюч КЛЮЧ_А_ВИД        = new XLinkКлюч( XLINK_SHOW    );
+    ЗонныйКлюч КЛЮЧ_А_РЕАЛИЗАЦИЯ = new XLinkКлюч( XLINK_ACTUATE );
 }

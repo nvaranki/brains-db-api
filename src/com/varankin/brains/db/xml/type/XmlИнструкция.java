@@ -8,7 +8,7 @@ import com.varankin.brains.db.xml.Xml;
  *
  * @author &copy; 2021 Николай Варанкин
  */
-public interface XmlИнструкция
+public interface XmlИнструкция extends XmlАтрибутный
 {
     ЗонныйКлюч КЛЮЧ_Э_ИНСТРУКЦИЯ = new ЗонныйКлюч( Xml.PI_ELEMENT, null );
 

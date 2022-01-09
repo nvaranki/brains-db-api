@@ -10,7 +10,7 @@ import static com.varankin.brains.db.xml.XmlBrains.*;
  *
  * @author &copy; 2021 Николай Варанкин
  */
-public interface XmlЗона
+public interface XmlЗона extends XmlАтрибутный
 {
     ЗонныйКлюч КЛЮЧ_Э_ЗОНА     = new ЗонныйКлюч( null, null );
     

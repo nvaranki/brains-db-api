@@ -8,7 +8,7 @@ import static com.varankin.brains.db.xml.XmlBrains.*;
  *
  * @author &copy; 2021 Николай Варанкин
  */
-public interface XmlТочка extends XmlТиповой, XmlЭлемент
+public interface XmlТочка extends XmlПараметризованный, XmlВнешний, XmlТиповой, XmlЭлемент
 {
     BrainsКлюч КЛЮЧ_Э_ТОЧКА   = new BrainsКлюч( XML_POINT     );
 

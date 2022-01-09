@@ -8,7 +8,7 @@ import static com.varankin.brains.db.xml.XmlBrains.*;
  *
  * @author &copy; 2021 Николай Варанкин
  */
-public interface XmlПроект extends XmlЭлемент
+public interface XmlПроект extends XmlКоллективный, XmlЭлемент
 {
     BrainsКлюч КЛЮЧ_Э_ПРОЕКТ = new BrainsКлюч( XML_PROJECT );
 }

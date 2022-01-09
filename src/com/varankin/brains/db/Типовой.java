@@ -48,6 +48,7 @@ public interface Типовой<T>
     /**
      * @return экземпляр, созданный по образцу, допустимо {@code null}.
      */
+    @Deprecated //TODO why it's here?
     T экземпляр();
 
 }

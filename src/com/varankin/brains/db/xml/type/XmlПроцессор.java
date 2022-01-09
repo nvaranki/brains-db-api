@@ -8,7 +8,7 @@ import static com.varankin.brains.db.xml.XmlBrains.*;
  *
  * @author &copy; 2021 Николай Варанкин
  */
-public interface XmlПроцессор extends XmlТиповой, XmlЭлемент
+public interface XmlПроцессор extends XmlПараметризованный, XmlВнешний, XmlТиповой, XmlЭлемент
 {
     BrainsКлюч КЛЮЧ_Э_ПРОЦЕССОР  = new BrainsКлюч( XML_PROCESSOR );
     
