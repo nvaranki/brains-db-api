@@ -15,10 +15,10 @@ import com.varankin.brains.db.Типовой;
  * 
  * @author &copy; 2021 Николай Варанкин
  */
-public interface DbГрафика extends Типовой<DbГрафика>, DbУзел
+public interface DbГрафика extends Типовой<DbГрафика>, DbУзел //TODO Типовой implied xlink:href only, now deprecated
 {
     /**
-     * @return вложенные графические элементы.
+     * @return вложенные графические элементы. 
      */
     Коллекция<DbГрафика> графики();
 
