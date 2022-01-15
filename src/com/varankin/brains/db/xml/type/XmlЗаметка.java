@@ -1,6 +1,5 @@
 package com.varankin.brains.db.xml.type;
 
-import com.varankin.brains.db.xml.ЗонныйКлюч;
 import com.varankin.brains.db.xml.BrainsКлюч;
 import static com.varankin.brains.db.xml.XmlBrains.*;
 
@@ -13,5 +12,5 @@ public interface XmlЗаметка extends XmlУзел
 {
     BrainsКлюч КЛЮЧ_Э_ЗАМЕТКА = new BrainsКлюч( XML_NOTE );
 
-    ЗонныйКлюч КЛЮЧ_А_ГЛУБИНА = new ЗонныйКлюч( BRAINS_ATTR_DETAIL, null );
+    BrainsКлюч КЛЮЧ_А_ГЛУБИНА = new BrainsКлюч( BRAINS_ATTR_DETAIL );
 }
