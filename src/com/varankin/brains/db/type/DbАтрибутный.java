@@ -1,10 +1,10 @@
 package com.varankin.brains.db.type;
 
-import com.varankin.brains.db.xml.МаркированныйЗонныйКлюч;
 import com.varankin.brains.db.DbОператор;
 import com.varankin.brains.db.xml.ЗонныйКлюч;
 import com.varankin.brains.db.Транзакция;
 import com.varankin.util.LoggerX;
+import com.varankin.util.MultiIterable;
 
 /**
  * Атрибутный узел графа.
@@ -20,9 +20,15 @@ public interface DbАтрибутный
     ЗонныйКлюч тип();
     
     /**
-     * @return маркированные ключи всех фактических атрибутов узла.
+     * @param актуальные {@code true} для объявленных ключей, {@code false} для всех прочих в наличии.
+     * @return запрошенные ключи атрибутов узла.
      */
-    Iterable<МаркированныйЗонныйКлюч> ключи();
+    Iterable<ЗонныйКлюч> ключи( boolean актуальные );
+    
+    default Iterable<ЗонныйКлюч> ключи()
+    {
+        return new MultiIterable<>( ключи( true ), ключи( false ) );
+    }
     
     /**
      * Задает атрибут узла как объект базы данных. 
