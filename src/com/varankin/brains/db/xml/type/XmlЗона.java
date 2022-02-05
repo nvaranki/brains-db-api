@@ -1,6 +1,6 @@
 package com.varankin.brains.db.xml.type;
 
-import com.varankin.brains.db.xml.ЗонныйКлюч;
+import com.varankin.brains.db.xml.АтрибутныйКлюч;
 import com.varankin.brains.db.xml.BrainsКлюч;
 import com.varankin.brains.db.xml.Xml;
 import static com.varankin.brains.db.xml.XmlBrains.*;
@@ -12,8 +12,10 @@ import static com.varankin.brains.db.xml.XmlBrains.*;
  */
 public interface XmlЗона extends XmlАтрибутный
 {
-    ЗонныйКлюч КЛЮЧ_Э_ЗОНА     = new ЗонныйКлюч( null, null );
-    
     BrainsКлюч КЛЮЧ_А_ВАРИАНТЫ = new BrainsКлюч( XML_NAME      ); //TODO XML_NAME ?!
     BrainsКлюч КЛЮЧ_А_ЗОНА     = new BrainsКлюч( Xml.XML_XMLNS );
+    
+    АтрибутныйКлюч КЛЮЧ_Э_ЗОНА = new АтрибутныйКлюч( 
+        null, null,
+        КЛЮЧ_А_ВАРИАНТЫ, КЛЮЧ_А_ЗОНА );
 }

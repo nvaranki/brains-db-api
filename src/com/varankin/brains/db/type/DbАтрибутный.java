@@ -1,6 +1,7 @@
 package com.varankin.brains.db.type;
 
 import com.varankin.brains.db.DbОператор;
+import com.varankin.brains.db.xml.АтрибутныйКлюч;
 import com.varankin.brains.db.xml.ЗонныйКлюч;
 import com.varankin.brains.db.Транзакция;
 import com.varankin.util.LoggerX;
@@ -17,7 +18,7 @@ public interface DbАтрибутный
     /**
      * @return ключ узла. 
      */
-    ЗонныйКлюч тип();
+    АтрибутныйКлюч тип();
     
     /**
      * @param актуальные {@code true} для объявленных ключей, {@code false} для всех прочих в наличии.

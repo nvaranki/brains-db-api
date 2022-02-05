@@ -1,15 +1,17 @@
 package com.varankin.brains.db.xml.type;
 
-import com.varankin.brains.db.xml.BrainsКлюч;
+import com.varankin.brains.db.xml.АтрибутныйКлюч;
 import static com.varankin.brains.db.xml.XmlBrains.*;
 
 /**
  * XML-дескриптор: Набор произвольных модулей, функций, 
  * классов и процессоров мыслительной структуры.
  *
- * @author &copy; 2021 Николай Варанкин
+ * @author &copy; 2022 Николай Варанкин
  */
 public interface XmlБиблиотека extends XmlЭлемент
 {
-    BrainsКлюч КЛЮЧ_Э_БИБЛИОТЕКА = new BrainsКлюч( XML_LIBRARY );
+    АтрибутныйКлюч КЛЮЧ_Э_БИБЛИОТЕКА = new АтрибутныйКлюч( 
+        XML_LIBRARY, XMLNS_BRAINS,
+        КЛЮЧ_А_НАЗВАНИЕ, КЛЮЧ_А_СБОРКИ );
 }

@@ -1,29 +1,31 @@
 package com.varankin.brains.db.xml.type;
 
-import com.varankin.brains.db.xml.SvgКлюч;
+import com.varankin.brains.db.xml.АтрибутныйКлюч;
+import com.varankin.io.xml.svg.XmlSvg;
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
 /**
  * XML-дескриптор: Произвольный узел структуры данных,
  * предназначенный для визуального отображения.
  * 
- * @author &copy; 2021 Николай Варанкин
+ * @author &copy; 2022 Николай Варанкин
  */
 public interface XmlГрафика extends XmlТиповой, XmlУзел
 {
-    static Map<String,SvgКлюч> КЛЮЧ_Э_ГРАФИКА = 
+    static Map<String,АтрибутныйКлюч> КЛЮЧ_Э_ГРАФИКА = 
         Collections.synchronizedMap( Collections.unmodifiableMap( new HashMap<>() 
     {
         @Override
-        public SvgКлюч get( Object key )
+        public АтрибутныйКлюч get( Object key )
         {
             return key instanceof String ? 
-                computeIfAbsent( (String) key, SvgКлюч::new ) :
+                computeIfAbsent( (String) key, k -> new АтрибутныйКлюч( 
+                        (String) key, XmlSvg.XMLNS_SVG, new HashSet<>() ) ) :
                 super.get( key );
-            
         }
     } ) );
     

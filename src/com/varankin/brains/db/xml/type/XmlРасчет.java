@@ -1,14 +1,16 @@
 package com.varankin.brains.db.xml.type;
 
-import com.varankin.brains.db.xml.BrainsКлюч;
+import com.varankin.brains.db.xml.АтрибутныйКлюч;
 import static com.varankin.brains.db.xml.XmlBrains.*;
 
 /**
  * XML-дескриптор: Вычислимый фрагмент мыслительной структуры.
  *
- * @author &copy; 2021 Николай Варанкин
+ * @author &copy; 2022 Николай Варанкин
  */
 public interface XmlРасчет extends XmlФрагмент.Экземпляр
 {
-    BrainsКлюч КЛЮЧ_Э_РАСЧЕТ = new BrainsКлюч( XML_COMPUTE );
+    АтрибутныйКлюч КЛЮЧ_Э_РАСЧЕТ = new АтрибутныйКлюч( 
+        XML_COMPUTE, XMLNS_BRAINS,
+        КЛЮЧ_А_НАЗВАНИЕ, КЛЮЧ_А_СБОРКИ );
 }
