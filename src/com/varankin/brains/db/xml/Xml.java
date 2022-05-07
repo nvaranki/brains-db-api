@@ -23,5 +23,6 @@ public interface Xml
     
     String XMLNS_XML = "http://www.w3.org/XML/1998/namespace";
     String XMLNS_PREFIX = "#PREFIX"; // история префикса пространства имен
+    String XMLNS_NS = "#NS";
     
 }

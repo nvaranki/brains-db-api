@@ -8,12 +8,11 @@ import com.varankin.property.MutablePropertyHolder;
 import com.varankin.property.PropertyMonitor;
 
 import java.util.Date;
-import java.util.function.Consumer;
 
 /**
  * Архив мыслительных структур.
  *
- * @author &copy; 2021 Николай Варанкин
+ * @author &copy; 2022 Николай Варанкин
  */
 public interface DbАрхив extends DbАтрибутный, Именованный, MutablePropertyHolder, PropertyMonitor
 {
@@ -55,11 +54,6 @@ public interface DbАрхив extends DbАтрибутный, Именованн
      */
     Date изменен();
     
-    /**
-     * @param значение обработчик событий по изменению архива и входящих в него элементов.
-     */
-    void обработчик( Consumer<DbАрхив> значение );
-
     /**
      * Создает новый элемент архива.
      * 
