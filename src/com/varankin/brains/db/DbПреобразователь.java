@@ -1,9 +1,6 @@
 package com.varankin.brains.db;
 
-import com.varankin.brains.db.type.DbАтрибутный;
-import com.varankin.util.LoggerX;
 import java.lang.reflect.Array;
-import java.util.logging.Level;
 
 /**
  * Преобразователь объектов {@linkplain Object общего типа} 
@@ -15,7 +12,11 @@ public interface DbПреобразователь
 {
     static Boolean toBooleanValue( Object значение )
     {
-        if( значение instanceof Boolean )
+        if( значение == null )
+        {
+            return null;
+        }
+        else if( значение instanceof Boolean )
         {
             return (Boolean)значение;
         }
@@ -33,15 +34,18 @@ public interface DbПреобразователь
         }
         else 
         {
-            if( значение != null )
-                LoggerX.getLogger(DbАтрибутный.class ).log( Level.SEVERE, "002002001S", значение );
-            return null;
+            // здесь и далее null выглядит лучше чем char[0], для индикации удаленного значения
+            throw new IllegalArgumentException( String.valueOf( значение ) );
         }
     }
     
     static Byte toByteValue( Object значение )
     {
-        if( значение instanceof Byte )
+        if( значение == null )
+        {
+            return null;
+        }
+        else if( значение instanceof Byte )
         {
             return (Byte)значение;
         }
@@ -59,29 +63,33 @@ public interface DbПреобразователь
         }
         else 
         {
-            if( значение != null )
-                LoggerX.getLogger(DbАтрибутный.class ).log( Level.SEVERE, "002002002S", значение );
-            return null;
+            throw new IllegalArgumentException( String.valueOf( значение ) );
         }
     }
     
     static Character toCharacterValue( Object значение )
     {
-        if( значение instanceof Character )
+        if( значение == null )
+        {
+            return null;
+        }
+        else if( значение instanceof Character )
         {
             return (Character)значение;
         }
         else 
         {
-            if( значение != null )
-                LoggerX.getLogger(DbАтрибутный.class ).log( Level.SEVERE, "002002003S", значение );
-            return null;
+            throw new IllegalArgumentException( String.valueOf( значение ) );
         }
     }
     
     static char[] toCharArrayValue( Object значение )
     {
-        if( значение instanceof char[] )
+        if( значение == null )
+        {
+            return null;
+        }
+        else if( значение instanceof char[] )
         {
             return (char[])значение;
         }
@@ -89,19 +97,19 @@ public interface DbПреобразователь
         {
             return ( (String)значение ).toCharArray();
         }
-        else if( значение != null )
-        {
-            return значение.toString().toCharArray();
-        }
         else
         {
-            return null;
+            throw new IllegalArgumentException( String.valueOf( значение ) );
         }
     }
     
     static Short toShortValue( Object значение )
     {
-        if( значение instanceof Short )
+        if( значение == null )
+        {
+            return null;
+        }
+        else if( значение instanceof Short )
         {
             return (Short)значение;
         }
@@ -119,15 +127,17 @@ public interface DbПреобразователь
         }
         else
         {
-            if( значение != null )
-                LoggerX.getLogger(DbАтрибутный.class ).log( Level.SEVERE, "002002004S", значение );
-            return null;
+            throw new IllegalArgumentException( String.valueOf( значение ) );
         }
     }
     
     static Integer toIntegerValue( Object значение )
     {
-        if( значение instanceof Integer )
+        if( значение == null )
+        {
+            return null;
+        }
+        else if( значение instanceof Integer )
         {
             return (Integer)значение;
         }
@@ -145,15 +155,17 @@ public interface DbПреобразователь
         }
         else
         {
-            if( значение != null )
-                LoggerX.getLogger(DbАтрибутный.class ).log( Level.SEVERE, "002002005S", значение );
-            return null;
+            throw new IllegalArgumentException( String.valueOf( значение ) );
         }
     }
     
     static Long toLongValue( Object значение )
     {
-        if( значение instanceof Long )
+        if( значение == null )
+        {
+            return null;
+        }
+        else if( значение instanceof Long )
         {
             return (Long)значение;
         }
@@ -171,15 +183,17 @@ public interface DbПреобразователь
         }
         else
         {
-            if( значение != null )
-                LoggerX.getLogger(DbАтрибутный.class ).log( Level.SEVERE, "002002006S", значение );
-            return null;
+            throw new IllegalArgumentException( String.valueOf( значение ) );
         }
     }
     
     static Float toFloatValue( Object значение )
     {
-        if( значение instanceof Float )
+        if( значение == null )
+        {
+            return null;
+        }
+        else if( значение instanceof Float )
         {
             return (Float)значение;
         }
@@ -197,15 +211,17 @@ public interface DbПреобразователь
         }
         else
         {
-            if( значение != null )
-                LoggerX.getLogger(DbАтрибутный.class ).log( Level.SEVERE, "002002007S", значение );
-            return null;
+            throw new IllegalArgumentException( String.valueOf( значение ) );
         }
     }
     
     static Double toDoubleValue( Object значение )
     {
-        if( значение instanceof Double )
+        if( значение == null )
+        {
+            return null;
+        }
+        else if( значение instanceof Double )
         {
             return (Double)значение;
         }
@@ -223,9 +239,7 @@ public interface DbПреобразователь
         }
         else
         {
-            if( значение != null )
-                LoggerX.getLogger(DbАтрибутный.class ).log( Level.SEVERE, "002002008S", значение );
-            return null;
+            throw new IllegalArgumentException( String.valueOf( значение ) );
         }
     }
     
@@ -235,23 +249,25 @@ public interface DbПреобразователь
         {
             return null;
         }
+        else if( значение instanceof String )
+        {
+            return (String)значение;
+        }
         else if( значение instanceof char[] )
         {
             return String.valueOf( (char[])значение );
         }
         else if( значение.getClass().isArray() )
         {
+            //TODO deprecated 
             StringBuilder sb = new StringBuilder();
             for( int i = 0, max = Array.getLength( значение ); i < max; i++ )
                 sb.append( Array.get( значение, i ) ).append( ' ' );
             return sb.toString().trim();
         }
-        else if( значение instanceof String )
-        {
-            return (String)значение;
-        }
         else
         {
+            //TODO deprecated 
             return значение.toString();
         }
     }

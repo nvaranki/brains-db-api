@@ -4,7 +4,6 @@ import com.varankin.brains.db.DbОператор;
 import com.varankin.brains.db.xml.АтрибутныйКлюч;
 import com.varankin.brains.db.xml.ЗонныйКлюч;
 import com.varankin.brains.db.Транзакция;
-import com.varankin.util.LoggerX;
 import com.varankin.util.MultiIterable;
 
 /**
@@ -132,9 +131,8 @@ public interface DbАтрибутный
      */
     default <X> X выполнить( DbОператор<X> оператор, DbАтрибутный узел )
     {
-        LoggerX logger = LoggerX.getLogger( DbАтрибутный.class );
-        throw new UnsupportedOperationException( logger.text( "002002009S", 
-                узел != null ? узел.тип().НАЗВАНИЕ : null ) );
+        throw new UnsupportedOperationException( 
+                узел != null ? узел.тип().НАЗВАНИЕ : null );
     }
 
 }
