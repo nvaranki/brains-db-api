@@ -11,7 +11,7 @@ import static com.varankin.brains.db.xml.XmlBrains.*;
 public interface XmlСенсор extends XmlПараметризованный, XmlВнешний, XmlТиповой, XmlЭлемент
 {
     АтрибутныйКлюч КЛЮЧ_Э_СЕНСОР = new АтрибутныйКлюч( 
-        XML_SIGNAL, XMLNS_BRAINS,
+        XML_SENSOR, XMLNS_BRAINS,
         КЛЮЧ_А_НАЗВАНИЕ, КЛЮЧ_А_СБОРКИ,
         КЛЮЧ_А_НАЗВАНИЕ_Т, КЛЮЧ_А_ССЫЛКА, КЛЮЧ_А_ВИД, КЛЮЧ_А_РЕАЛИЗАЦИЯ );
 }
