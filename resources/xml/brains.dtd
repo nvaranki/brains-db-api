@@ -16,7 +16,8 @@
 <!-- DbПроект extends Коллективный, DbЭлемент -->
 <!ELEMENT project ( library | fragment | processor | signal | note | ANY )* ><!-- DbЭлемент: графики сборки -->
 <!ATTLIST project 
-    name    CDATA #IMPLIED 
+    name      CDATA #IMPLIED 
+    processor CDATA #IMPLIED
     >
 
 <!-- DbБиблиотека extends DbЭлемент -->
