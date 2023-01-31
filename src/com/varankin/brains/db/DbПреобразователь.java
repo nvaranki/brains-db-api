@@ -119,11 +119,12 @@ public interface DbПреобразователь
         }
         else if( значение instanceof String )
         {
-            return Short.valueOf( (String)значение );
+            return ( (String)значение ).isBlank() ? null : Short.valueOf( (String)значение );
         }
         else if( значение instanceof char[] )
         {
-            return Short.valueOf( String.valueOf( (char[])значение ) );
+            String текст = String.valueOf( (char[])значение );
+            return текст.isBlank() ? null : Short.valueOf( текст );
         }
         else
         {
