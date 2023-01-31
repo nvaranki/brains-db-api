@@ -37,6 +37,7 @@ public interface XmlBrains
     static final String XML_COMPUTE = "compute";
     static final String XML_PROCESSOR = "processor";
     static final String XML_SIGNAL = "signal";
+    static final String XML_THINKER = "#thinker";
     static final String XML_TIMELINE = "timeline";
     static final String XML_JAVA = "java";
     static final String XML_PARAMETER = "parameter";
