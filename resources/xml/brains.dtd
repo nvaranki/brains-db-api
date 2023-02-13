@@ -3,7 +3,7 @@
 <!-- 
    - Descriptor of XML based object model for the brains structures.
    - 
-   - Copyright (c) 2021 Nikolai Varankine
+   - Copyright (c) 2023 Nikolai Varankine
   -->
 
 <!-- DbПакет extends DbУзел, Именованный -->
@@ -84,6 +84,7 @@
 <!ATTLIST java 
     name      CDATA        #REQUIRED 
     purpose   CDATA        #IMPLIED 
+    options   CDATA        #IMPLIED 
     >
 
 <!-- DbЗаметка extends DbУзел -->

@@ -7,7 +7,7 @@ import com.varankin.brains.db.DbОператор;
  * Выполняет функции элемента мыслительной структуры, в 
  * которую он вложен. 
  *
- * @author &copy; 2021 Николай Варанкин
+ * @author &copy; 2023 Николай Варанкин
  */
 public interface DbКлассJava extends DbЭлемент
 {
@@ -26,6 +26,16 @@ public interface DbКлассJava extends DbЭлемент
      * @return текст класса на языке программирования Java или {@code null}.
      */
     String код();
+    
+    /**
+     * @return дополнительные опции компиляции класса или {@code null}.
+     */
+    String опции();
+    
+    /**
+     * @param значение дополнительные опции компиляции класса.
+     */
+    void опции( String значение );
 
     /**
      * @param текст текст класса на языке программирования Java или {@code null}.

@@ -4,7 +4,7 @@ import java.net.URL;
 
 /**
  *
- * @author &copy; 2021 Николай Варанкин
+ * @author &copy; 2023 Николай Варанкин
  */
 public interface XmlBrains 
 {
@@ -82,6 +82,7 @@ public interface XmlBrains
     static final String BRAINS_ATTR_NAME = "name"; //TODO vs. Xml.XLINK_TITLE
     static final String BRAINS_ATTR_DETAIL = "detail";
     static final String BRAINS_ATTR_PURPOSE = "purpose";
+    static final String BRAINS_ATTR_OPTIONS = "options";
     
     static final String XMLNS_BRAINS = "http://www.varankin.com/ns/brains";
     

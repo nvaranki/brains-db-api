@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  - Descriptor of XML based object model for the brains structures.
+  - 
+  - Copyright (c) 2012 Nikolai Varankine
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+  <xs:element name="brains">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="component"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="module"/>
+          <xs:element ref="processor"/>
+          <xs:element ref="compute"/>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="version" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="module">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="interface"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="component"/>
+          <xs:element ref="function"/>
+          <xs:element ref="field"/>
+          <xs:element ref="signal"/>
+          <xs:element ref="processor"/>
+          <xs:element ref="compute"/>
+          <xs:element ref="module"/>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="id" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="interface">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="note"/>
+        <xs:choice minOccurs="0">
+          <xs:element maxOccurs="unbounded" ref="interface"/>
+          <xs:element maxOccurs="unbounded" ref="pin"/>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="id" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="component">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="note"/>
+        <xs:element ref="interface"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required"/>
+      <xs:attribute name="module" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="function">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="note"/>
+        <xs:element ref="interface"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required"/>
+      <xs:attribute name="compute" use="required"/>
+      <xs:attribute name="processor"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="field">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="note"/>
+        <xs:element ref="interface"/>
+        <xs:element ref="interface"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="signal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="note"/>
+        <xs:element maxOccurs="unbounded" ref="java"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required"/>
+      <xs:attribute name="priority"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="processor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="note"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required"/>
+      <xs:attribute name="pause"/>
+      <xs:attribute name="restart">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="true"/>
+            <xs:enumeration value="false"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="compute">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="note"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="point"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="pin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="note"/>
+        <xs:element maxOccurs="unbounded" ref="java"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required"/>
+      <xs:attribute name="signal"/>
+      <xs:attribute name="priority"/>
+      <xs:attribute name="type" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <!-- pin type -->  
+            <xs:enumeration value="inp"/><!-- СпКонтакт.Тип.ПРИЕМНИК -->
+            <xs:enumeration value="out"/><!-- СпКонтакт.Тип.ИСТОЧНИК -->
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="note">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="any">
+          <xs:attribute name="id" use="required"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="java">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="any">
+          <xs:attribute name="name" use="required"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="point">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="note"/>
+        <xs:element minOccurs="0" ref="java"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="point"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required"/>
+      <xs:attribute name="priority"/>
+      <xs:attribute name="probe">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="true"/>
+            <xs:enumeration value="false"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  
+  <!--xs:complexType name="any" mixed="true">
+    <xs:sequence>
+      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="strict"/>
+    </xs:sequence>
+  </xs:complexType-->
+  
+</xs:schema>
